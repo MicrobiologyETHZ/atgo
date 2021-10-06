@@ -1,3 +1,4 @@
+#' @export
 get_upstream <- function(go_id){
     # Figure out which ontology the id is from
     aspect <- select(GO.db, go_id, "ONTOLOGY")$ONTOLOGY

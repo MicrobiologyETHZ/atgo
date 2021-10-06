@@ -1,17 +1,18 @@
 Package: atgo
-Title: R package for GO term enrichment tests in Arabidopsis thaliana
+Title: GO Term Enrichment for A. thaliana
 Version: 1.0.0
 Authors@R: 
     person(given = "Chris",
            family = "Field",
            role = c("aut", "cre"),
            email = "fieldc@ethz.ch")
-Description: This package provides the data and functions for GO term enrichment tests in Arabidopsis thaliana.
+Description: This package provides functions for GO term enrichment in Arabidopsis thaliana. It uses data from TAIR (https://www.arabidopsis.org/) and the Bioconductor package GO.db.
 biocViews:
     GO.db,
 Depends:
     R (>= 4.0.0),
-Remotes: MicrobiologyETHZ/atgo
-License: GPL-3
+License: `use_gpl3_license()`
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
