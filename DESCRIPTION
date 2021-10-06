@@ -8,9 +8,9 @@ Authors@R:
            email = "fieldc@ethz.ch")
 Description: This package provides functions for GO term enrichment in Arabidopsis thaliana. It uses data from TAIR (https://www.arabidopsis.org/) and the Bioconductor package GO.db.
 biocViews:
-    GO.db,
 Depends:
     R (>= 4.0.0),
+    GO.db
 License: `use_gpl3_license()`
 Encoding: UTF-8
 LazyData: true

@@ -1,7 +1,3 @@
-# Description
+# ATGO
 
-A description of the project
-
-# Progress
-
-Notes on project progress
+An R package to enable GO term enrichment testing in A. thaliana.
