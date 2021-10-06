@@ -28,13 +28,17 @@ agi_go_enrichment <- function(agi_list, variants=TRUE, relationships="all", aspe
         warning("Some GO IDs associated with these AGI are not listed in GO.db for reasons beyond comprehension. They will be ignored.")
     }
     in_go_ids <- in_go_ids[in_go_ids%in%keys(GO.db)]
-    
+
+    # Fetch readable terms
+    in_terms <- suppressMessages(select(GO.db, in_go_ids, "TERM"))
+    in_terms <- in_terms$TERM
+
     # Test each go_id
     cat(paste("Testing", length(in_go_ids), "GO ids\n"))
     p_values <- unlist(sapply(in_go_ids, function(x) go_id_enrichment(x, agi_list, variants=variants, relationships=relationships, evidence=evidence, method=method)))
-    names(p_values) <- in_go_ids
-    p_adj <- p.adjust(p_values, method=p.adjust_method)
-    p_adj <- sort(p_adj)
 
-    return(p_adj)
+    output_tab <- data.frame(go_id=in_go_ids, term=in_terms, p.value=p_values)
+    output_tab <- output_tab[order(output_tab$p.value),]
+
+    return(output_tab)
 }
