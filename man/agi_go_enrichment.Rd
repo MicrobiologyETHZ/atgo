@@ -11,7 +11,10 @@ agi_go_enrichment(
   aspects = "all",
   evidence = "any",
   method = "binom",
-  p.adjust_method = "BH"
+  p.adjust_method = "BH",
+  cutoff = 1,
+  test_upstream = TRUE,
+  report_counts = FALSE
 )
 }
 \arguments{
@@ -26,6 +29,12 @@ agi_go_enrichment(
 \item{method}{The method to use for statistical testing; binom, fisher or chisq. Default: binom}
 
 \item{p.adjust_method}{The method for p-value adjustment, see p.adjust. Default: BH}
+
+\item{cutoff}{If given, only results with p-value less than or equal to this parameter will be reported. Default: report all results}
+
+\item{test_upstream}{A logical to determine if GO terms upstream of those given in ATH_GOSLIM will also be tested for significance. Default: TRUE}
+
+\item{report_counts}{A logical, if set the results table will include counts of in- and out-group genes for each GO term. Default: FALSE}
 
 \item{aspect}{A vector of GO aspects to consider. F: molecular function; C: cellular component; P: biological process. Default: all}
 }

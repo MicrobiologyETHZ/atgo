@@ -1,6 +1,6 @@
 Package: atgo
 Title: GO Term Enrichment for A. thaliana
-Version: 1.1.0
+Version: 1.2.0
 Authors@R: 
     person(given = "Chris",
            family = "Field",

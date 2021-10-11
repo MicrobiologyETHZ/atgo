@@ -1,5 +1,5 @@
 #' @export
-go2agi <- function(go_id_list, variants=FALSE, relationships="all", evidence="any"){
+go2agi <- function(go_id_list, variants=TRUE, relationships="all", evidence="any"){
     if(relationships=="all"){
         relationships <- unique(ath_goslim$relationship)
     }
@@ -8,10 +8,10 @@ go2agi <- function(go_id_list, variants=FALSE, relationships="all", evidence="an
     }
 
     if(variants){
-        agis <- ath_goslim[ath_goslim$go_id%in%go_id_list & ath_goslim$relationship%in%relationships & ath_goslim$evidence_code%in%evidences,]$object
+        agis <- ath_goslim[ath_goslim$go_id%in%go_id_list & ath_goslim$relationship%in%relationships & ath_goslim$evidence_code%in%evidences,]$locus
         return(unique(agis))
     }else{
-        agis <- ath_goslim[ath_goslim$go_id%in%go_id_list & ath_goslim$relationship%in%relationships & ath_goslim$evidence_code%in%evidences,]$locus
+        agis <- ath_goslim[ath_goslim$go_id%in%go_id_list & ath_goslim$relationship%in%relationships & ath_goslim$evidence_code%in%evidences,]$object
         return(unique(agis))
     }
 }

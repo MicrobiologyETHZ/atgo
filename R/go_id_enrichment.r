@@ -1,5 +1,5 @@
 #' @export
-go_id_enrichment <- function(go_id, in_list, variants=TRUE, relationships="all", evidence="any", method="binom"){
+go_id_enrichment <- function(go_id, in_list, variants=TRUE, relationships="all", evidence="any", method="binom", report_counts=FALSE){
     # Check if method is valid
     if(!method%in%c("binom", "fisher", "chisq")){
         stop(paste(method, "is not a valid method. Supported methods are binom, fisher and chisq."))
@@ -19,5 +19,12 @@ go_id_enrichment <- function(go_id, in_list, variants=TRUE, relationships="all",
         m <- matrix(c(count$in_true, count$in_false, count$out_true, count$out_false), nrow=2)
         p <- chisq.test(m)$p.value
     }
-    return(p)
+
+    if(report_counts){
+        result <- c(p, count$in_true, count$in_false, count$out_true, count$out_false)
+        names(result) <- c("p.value", "in_group_true", "in_group_false", "out_group_true", "out_group_false")
+        return(result)
+    }else{
+        return(p)
+    }
 }

@@ -1,5 +1,5 @@
 #' @export
-go_id_count <- function(go_id, in_list, variants = TRUE, relationships = "all", evidence = "any"){
+go_id_count <- function(go_id, in_list, variants=TRUE, relationships="all", evidence="any"){
     # The out_list is everything not in the in_list
     out_list <- all_agi[!all_agi %in% in_list]
 
