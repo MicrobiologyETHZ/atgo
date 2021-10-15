@@ -2,8 +2,10 @@
 
 export(agi2go)
 export(agi_go_enrichment)
+export(compare_go_enrichment)
 export(get_downstream)
 export(get_upstream)
 export(go2agi)
 export(go_id_count)
 export(go_id_enrichment)
+export(plot_go_comparison)
